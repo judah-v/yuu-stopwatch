@@ -52,8 +52,11 @@
     cursor: pointer;
     outline: none;
     transition: .25s;
+    opacity: .7;
 }
-
+.buttons button:hover {
+    opacity: 1;
+}
 .buttons button:nth-last-child(1){
     background-color: #007bff;
     margin-left: 5%;
