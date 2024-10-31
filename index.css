@@ -99,4 +99,13 @@ img {
     }
     
 }
-
+@media (max-width: 600px){
+    .container {
+        margin-top: -30px;
+        min-width: 90vw;
+    }
+    .buttons button {
+        min-width: 40vw;
+        font-size: 30px;
+    }
+}
