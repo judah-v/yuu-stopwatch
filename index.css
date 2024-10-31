@@ -100,8 +100,11 @@ img {
     
 }
 @media (max-width: 600px){
+    img {
+        margin-top: -15px;
+    }
     .container {
-        margin-top: -30px;
+        margin-top: 0px;
         min-width: 90vw;
     }
     .buttons button {
