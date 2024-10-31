@@ -100,12 +100,13 @@ img {
     
 }
 @media (max-width: 600px){
-    img {
-        margin-top: -15px;
-    }
     .container {
-        margin-top: 0px;
+        margin: auto;
         min-width: 90vw;
+    }
+    .timerDisplay {
+        font-size: 50px;
+
     }
     .buttons button {
         min-width: 40vw;
