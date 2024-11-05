@@ -101,7 +101,7 @@
     opacity: 1;
 }
 .buttons button:nth-last-child(1){
-    background-color: #007bff;
+    background-color: #d23332;
     margin-left: 5%;
 }
 #content {
