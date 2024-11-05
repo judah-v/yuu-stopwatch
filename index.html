@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
-    <title>Stopwatch</title>
+    <title>Sign Up</title>
     <script src="index.js" defer></script>
 </head>
 <body>
@@ -12,12 +12,52 @@
         <img src="Yuu.jpg" alt="Year Up United logo">
         <article>
             <div class="container">
+                <div class="timerControl">
+                    <input type="text" list="hrs" class="timerFields timerOnly" width="3000px" id="hrs_field">
+                        <datalist id="hrs">
+                            <option value="01"></option>
+                            <option value="02"></option>
+                            <option value="03"></option>
+                            <option value="04"></option>
+                            <option value="05"></option>
+                            <option value="06"></option>
+                            <option value="07"></option>
+                            <option value="08"></option>
+                        </datalist> <span class="timerOnly">h</span>  
+                    </input>
+                    <input type="text" list="min" class="timerFields timerOnly" id="mins_field">
+                        <datalist id="min">
+                            <option value="05"></option>
+                            <option value="10"></option>
+                            <option value="15"></option>
+                            <option value="20"></option>
+                            <option value="25"></option>
+                            <option value="30"></option>
+                            <option value="45"></option>
+                            <option value="55"></option>
+                        </datalist> <span class="timerOnly">m</span> 
+                    </input>
+                    <input type="text" list="sec" class="timerFields timerOnly" id="secs_field">
+                        <datalist id="sec">
+                            <option value="05"></option>
+                            <option value="10"></option>
+                            <option value="15"></option>
+                            <option value="20"></option>
+                            <option value="25"></option>
+                            <option value="30"></option>
+                            <option value="45"></option>
+                            <option value="55"></option>
+                        </datalist> <span class="timerOnly">s</span>
+                        <button id="countdownButton">Countdown Mode</button>
+                        <button id="stopwatchButton">Stopwatch</button>
+                    </input>
+                </div>
                 <div class="timerDisplay">
                     00 h 00 m 00 s 000
                  </div>
                  <div class="buttons">
-                    <button id="startTimer">Start</button>
-                    <button id="resetTimer">Reset</button>
+                    <button id="start">Start</button>
+                    <button id="reset">Reset</button>
                   </div>
             </div>
             
