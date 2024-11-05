@@ -30,7 +30,7 @@ function start(){
     } else {
         
         startButton.innerText = "Pause"
-        startButton.style.background = "#d23332";
+        startButton.style.background = "#007bff";
         int = setInterval(displayTimer,10);
         if(newRun){
             reset()
