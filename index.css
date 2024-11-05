@@ -1,9 +1,26 @@
 @charset "utf-8";
-/* Timer styles */
+:root {
+    --size: 80;
+}
 *,
 *:before,
 *:after{
     box-sizing: border-box;
+}
+.timerFields{
+    width: 100px;
+    height: 60px;
+    font-size: 40px;
+    background: #ffffff38;
+    border: transparent;
+    border-radius: 5px;
+    color: #3e94bc;
+    margin-left: 20px;
+    
+}
+.timerOnly {
+    display: none;
+
 }
 .container{
     background-color: transparent;
@@ -18,6 +35,32 @@
     padding-bottom: 50px;
     border-radius: 10px;
 }
+#countdownButton, #stopwatchButton {
+    height: 60px;
+    background-color: #20c997;
+    color: #ffffff;
+    border: none;
+    font-family: "Roboto mono", monospace;
+    font-size: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    transition: .25s;
+    opacity: .7;
+}
+#stopwatchButton {
+    display: none;
+    background: red;
+}
+.timerControl {
+    position: relative;
+    width: fit-content;
+    font-family: 'Roboto mono',monospace;
+    color: #3e94bc;
+    font-size: 40px;
+    margin:  10px auto 4vh;
+    border-radius: 5px;
+}
 .timerDisplay{
     position: relative;
     width: 92%;
@@ -31,7 +74,7 @@
     align-items: center;
     justify-content: space-around;
     border-radius: 5px;
-    box-shadow: 0 0 20px rgba(253, 84, 0,.85);
+    box-shadow: 0 0 30px rgba(253, 84, 0,.85);
 }
 .buttons{
     width: 60%;
@@ -54,7 +97,7 @@
     transition: .25s;
     opacity: .7;
 }
-.buttons button:hover {
+.buttons button:hover, #countdownButton:hover {
     opacity: 1;
 }
 .buttons button:nth-last-child(1){
