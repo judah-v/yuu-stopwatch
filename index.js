@@ -1,7 +1,10 @@
 let timerRef = document.querySelector('.timerDisplay');
 let startButton = document.getElementById('start');
 let resetButton = document.getElementById('reset');
-let countdownButton = document.getElementById('countdownButton');
+let countdownButton = document.getElementById('countdown');
+let stopwatchButton = document.getElementById('stopwatch');
+let clockButton = document.getElementById('clock');
+
 let hrs_field = document.getElementById('hrs_field');
 let mins_field = document.getElementById('mins_field');
 let secs_field = document.getElementById('secs_field');
@@ -17,13 +20,16 @@ mins_field.addEventListener('blur', setTimer)
 secs_field.addEventListener('blur', setTimer)
 startButton.addEventListener('click', start);
 resetButton.addEventListener('click', reset);
-countdownButton.addEventListener('click', toggleCountdown);
+countdownButton.addEventListener('click', startCountdown);
+stopwatchButton.addEventListener('click', startStopwatch);
+clockButton.addEventListener('click', startClock);
+
 
 function start(){
     if(int!==null){
         clearInterval(int);
         int = null;
-        startButton.innerText = "Start"
+        startButton.innerText = "Resume"
         startButton.style.background = "#20b380";
         newRun = false;
         
@@ -39,24 +45,60 @@ function start(){
         }
     }
 };
+function startClock(){
+    stopwatchButton.style.background = "none";
+    clockButton.style.background = "#e83e8c";
+    countdownButton.style.background = "none";
+    for (field of document.getElementsByClassName('timerOnly')){
+        field.style.display = "none";
 
-function toggleCountdown(){
-    if (isStopwatch){
-        countdownButton.innerText = "Stopwatch Mode"
-        for (field of document.getElementsByClassName('timerOnly')){
-            field.style.display = "initial";
-        }
-        isStopwatch = false;
-    } else {
-        countdownButton.innerText = "Countdown Mode";
-        for (field of document.getElementsByClassName('timerOnly')){
-            field.style.display = "none";
-        }
-        isStopwatch = true;
     }
+    startButton.style.display = "none";
+    resetButton.style.display = "none";
+    int = setInterval(displayClock, 10)
+}
+function displayClock(){
+    const now = new Date();
+    const timeString = now.toLocaleTimeString('en-US', { hour12: true });
+    const suffix = timeString.slice(-2);
+    const hours = now.getHours()
+    const minutes = now.getMinutes()
+    const seconds = now.getSeconds()
+    const milliseconds = now.getMilliseconds()
+    let h = hours < 10 ? hours === '' ? "00": "0" + hours : hours;
+    let m = minutes < 10 ? minutes === '' ? "00": "0" + minutes : minutes;
+    let s = seconds < 10 ? seconds === '' ? "00": "0" + seconds : seconds;
+    let ms = milliseconds < 10 ? "00" + milliseconds : milliseconds < 100 ? "0" + milliseconds : milliseconds;
+    if (ms != 1000){
+    timerRef.innerHTML = `${h} : ${m} : ${s} ${suffix}`
+    }
+}
+function startStopwatch(){
+    stopwatchButton.style.background = "#e83e8c";
+    clockButton.style.background = "none";
+    countdownButton.style.background = "none";
+    for (field of document.getElementsByClassName('timerOnly')){
+        field.style.display = "none";
+
+    }
+    startButton.style.display = "block";
+    resetButton.style.display = "block";
+    isStopwatch = true;
     reset();
 };
-
+function startCountdown(){
+    stopwatchButton.style.background = "none";
+    clockButton.style.background = "none";
+    countdownButton.style.background = "#e83e8c";
+    for (field of document.getElementsByClassName('timerOnly')){
+        field.style.display = "initial";
+        
+    }
+    startButton.style.display = "block";
+    resetButton.style.display = "block";
+    isStopwatch = false;
+    reset();
+}
 function reset(){
     clearInterval(int);
     int = null;
