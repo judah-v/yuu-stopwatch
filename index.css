@@ -120,7 +120,8 @@ nav button {
     border: none;
     border-radius: 5px;
     padding: 0 10px;
-    font-size:larger;
+    font-size: larger;
+    color: white;
 }
 nav button:hover {
     background: #e83e8c !important;
